@@ -79,6 +79,9 @@ function AttendanceManagement() {
     
     
 
+    const getAttendeeName = (attendee) => {
+        return attendanceType === 'staff' ? attendee.name : attendee.childName;
+    };
 
     return (
         <div className="attendance-management">

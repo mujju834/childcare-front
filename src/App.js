@@ -1,12 +1,19 @@
 import AdminDashboard from "./Full-Front/AdminDashboard/AdminDashboard";
+import ChildEnrollmentForm from "./Full-Front/ChildEnrollmentForm/ChildEnrollmentForm";
+import FacilityCreationForm from "./Full-Front/ChildEnrollmentForm/FacilityCreationForm";
+import TeacherHiringForm from "./Full-Front/ChildEnrollmentForm/TeacherHiringForm";
 import FacilityAdminDashboard from "./Full-Front/FacilityAdminDashboard/FacilityAdmin";
 import LoginPage from "./Full-Front/Login&Register/LoginPage";
 import RegisterPage from "./Full-Front/Login&Register/RegisterPage";
+import NotificationComponent from "./Full-Front/NotificationComponent/NotificationComponent";
 import ParentDashboard from "./Full-Front/ParentDashboard/ParentDashboard";
+import ProfileModal from "./Full-Front/ProfileModal/ProfileModal";
+import ReportingSection from "./Full-Front/ReportingSection/ReportingSection";
 import TeacherDashboard from "./Full-Front/TeacherDashboard/TeacherDashboard";
 import Landingpage from "./Full-Front/LandingPage/Landingpage";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ForgotPassword from "./Full-Front/Login&Register/Forgotpassword";
+import AddStaffForm from "./Full-Front/ParentDashboard/AddStaffForm";
 import { StaffProvider } from "./contexts/StaffContext";
 import { UserProvider } from './contexts/UserContext';
 
@@ -17,7 +24,31 @@ function App() {
     <StaffProvider>
     <Router>
     <div >
-   
+    {/* <Landingpage/> */}
+    {/* <LoginPage/> */}
+    {/* <RegisterPage/> */}
+
+    {/* <FacilityAdminDashboard/> */}
+    {/* <TeacherDashboard/> */}
+    {/* <ParentDashboard/> */}
+
+    {/* work on this code not working */}
+    {/* <ProfileModal/>   */}
+
+    {/* child enrollment form */}
+    {/* <ChildEnrollmentForm/>
+    <FacilityCreationForm/>
+    <TeacherHiringForm/> */}
+    {/* this all are forms */}
+
+{/* this is reporting section */}
+{/* <ReportingSection/> */}
+
+{/* this is notification component this is also not working */}
+{/* <NotificationComponent/> */}
+
+
+{/* sample for routes */}
 <Routes>
 
 <Route path="/" element={<Landingpage />} />
@@ -31,6 +62,7 @@ function App() {
 <Route path="/facilityadmindashboard" element={<FacilityAdminDashboard />} />
 
 
+{/* <Route path="/addstaffform" element={<AddStaffForm />} /> */}
 
 
 

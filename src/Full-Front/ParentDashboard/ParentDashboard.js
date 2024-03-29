@@ -146,7 +146,7 @@ function ChildLedger() {
         const fetchChildren = async () => {
             const parentEmail = localStorage.getItem('email'); // Replace 'email' with your actual local storage key
             if (!parentEmail) {
-                alert('No email found in local storage');
+                alert('No email found in local storage.');
                 return;
             }
 
