@@ -1,0 +1,12 @@
+.reporting-section {
+    padding: 20px;
+}
+
+.chart-container {
+    margin-top: 20px;
+}
+
+.bar-chart-container,
+.pie-chart-container {
+    margin: 20px 0;
+}

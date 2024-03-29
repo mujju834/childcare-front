@@ -1,0 +1,13 @@
+.notification-container {
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid gray;
+    padding: 10px;
+  }
+  
+  .notification {
+    padding: 8px;
+    border-bottom: 1px solid lightgray;
+  }
+  

@@ -1,0 +1,88 @@
+.admin-dashboard {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.admin-dashboard h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.dashboard-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-options button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.dashboard-options button:hover {
+    background-color: #367c39;
+    transform: translateY(-2px);
+}
+
+.add-facility-form, .facilities-overview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-facility-form input {
+    padding: 10px;
+    margin: 10px 5px;
+    width: 40%;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.add-facility-form button {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.facility-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.facility-card h3 {
+    margin-top: 0;
+}
+
+.facility-card button {
+    background-color: #ff6347; /* Tomato */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    width: 100px; /* Set a fixed width */
+}
+
+.facility-card button:hover {
+    background-color: #e55342;
+}
+
+
+

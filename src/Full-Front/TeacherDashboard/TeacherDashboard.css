@@ -1,0 +1,240 @@
+.teacher-dashboard {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.teacher-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background-color: #34495e;
+    box-shadow: 0px 4px 6px -2px gray;
+}
+
+.teacher-navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.teacher-navbar li button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.teacher-navbar li button:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.content {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-chart,
+.classroom-overview,
+.salary-details {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.attendance-chart:hover,
+.classroom-overview:hover,
+.salary-details:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.attendance-chart h3,
+.classroom-overview h3,
+.salary-details h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+ul.students-list {
+    padding-left: 20px;
+}
+
+ul.students-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #bdc3c7;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+ul.students-list li:last-child {
+    border-bottom: none;
+}
+
+h4,
+h5 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.salary-details p {
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .teacher-navbar {
+        padding: 10px;
+    }
+    
+    .teacher-navbar ul {
+        gap: 10px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+}
+
+/* TeacherDashboard.css */
+
+/* ... existing styles ... */
+
+/* Assuming .teacher-navbar already has display: flex; */
+.teacher-navbar ul {
+    display: flex;
+    justify-content: start;
+    width: 100%; /* Ensure the navbar spans the full width */
+    /* Other styling as required */
+  }
+  
+  .logout-button-container {
+      margin-left: auto; /* This will push the logout button to the end of the navbar */
+  }
+  
+
+  /* ... existing styles ... */
+
+/* Add this to the bottom of your existing CSS to ensure it has priority */
+.logout-button {
+    background-color: #ff4136; /* Red background for the logout button */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transition for color and background */
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto; /* Pushes the button to the end of the navbar */
+    display: block; /* Change the display to block to enable margin auto to work */
+}
+
+.logout-button:hover {
+    background-color: #e82c0c; /* Darker shade of red on hover */
+}
+
+/* Ensure that the specific logout button isn't affected by the general button hover styles */
+.teacher-navbar li button.logout-button:hover {
+    background-color: #e82c0c;
+    color: #ffffff; /* Keep the text color white when hovered */
+}
+
+  
+
+.students-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.student-card {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.sign-in-out-container {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 10px; /* Space before the details */
+}
+
+.sign-in-out-details {
+    text-align: center; /* Center the details text */
+    margin-top: 10px; /* Space above the details */
+}
+
+
+.student-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.student-contact {
+    margin: 0;
+    color: #555;
+}
+
+
+.sign-in-out-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.sign-in-out-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* salary details */
+.salary-details {
+    background-color: #f5f5f5; /* Light grey background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Spacing inside the box */
+    max-width: 400px; /* Maximum width */
+    margin: auto; /* Center align */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Arial', sans-serif; /* Font style */
+}
+
+.salary-details h3 {
+    color: #333; /* Dark grey color for the heading */
+    margin-bottom: 16px; /* Spacing below the heading */
+}
+
+.salary-details p {
+    background-color: #fff; /* White background for each line item */
+    padding: 10px 15px; /* Padding inside each line item */
+    border-radius: 5px; /* Rounded corners for line items */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Slight shadow for line items */
+    margin-bottom: 10px; /* Space between items */
+    color: #333; /* Text color */
+    font-size: 16px; /* Text size */
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .salary-details {
+        width: 90%; /* Full width on smaller screens */
+        margin: 20px; /* More margin on smaller screens */
+    }
+}
+
