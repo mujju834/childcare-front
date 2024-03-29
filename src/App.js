@@ -5,7 +5,7 @@ import RegisterPage from "./Full-Front/Login&Register/RegisterPage";
 import ParentDashboard from "./Full-Front/ParentDashboard/ParentDashboard";
 import TeacherDashboard from "./Full-Front/TeacherDashboard/TeacherDashboard";
 import Landingpage from "./Full-Front/LandingPage/Landingpage";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ForgotPassword from "./Full-Front/Login&Register/Forgotpassword";
 import { StaffProvider } from "./contexts/StaffContext";
 import { UserProvider } from './contexts/UserContext';
@@ -31,7 +31,6 @@ function App() {
 <Route path="/facilityadmindashboard" element={<FacilityAdminDashboard />} />
 
 
-{/* <Route path="/addstaffform" element={<AddStaffForm />} /> */}
 
 
 

@@ -44,17 +44,7 @@ function ClassroomCapacityManager({ onSeeCapacity }) {
         fetchGrades();
     }, []);
 
-    const handleSeeCapacity = () => {
-        // Check if a grade has been selected
-        if (selectedClassroomGrade) {
-            // If so, allow the capacity information to be displayed
-            setShowCapacities(true);
-        } else {
-            // If not, reset the display and alert the user
-            setShowCapacities(false);
-            alert('Please select a classroom grade to see its capacity.');
-        }
-    };
+   
     return (
         <div className="capacity-management">
             <h4>View Classroom Capacity</h4>
