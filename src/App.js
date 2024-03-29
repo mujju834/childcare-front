@@ -1,9 +1,13 @@
 import AdminDashboard from "./Full-Front/AdminDashboard/AdminDashboard";
+import FacilityAdminDashboard from "./Full-Front/FacilityAdminDashboard/FacilityAdmin";
 import LoginPage from "./Full-Front/Login&Register/LoginPage";
 import RegisterPage from "./Full-Front/Login&Register/RegisterPage";
+import ParentDashboard from "./Full-Front/ParentDashboard/ParentDashboard";
+import TeacherDashboard from "./Full-Front/TeacherDashboard/TeacherDashboard";
 import Landingpage from "./Full-Front/LandingPage/Landingpage";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ForgotPassword from "./Full-Front/Login&Register/Forgotpassword";
+import { StaffProvider } from "./contexts/StaffContext";
 import { UserProvider } from './contexts/UserContext';
 
 
