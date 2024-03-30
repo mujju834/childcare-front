@@ -69,7 +69,7 @@ function AddChildForm() {
         const address = e.target.address.value;
 
         try {
-            const response = await axios.post('http://localhost:5000/api/users/add-child', {
+            const response = await axios.post('https://childcare-backend.onrender.com/api/users/add-child', {
                 childName, dob, grade, parentEmail, contactNumber, address
             });
 
@@ -151,7 +151,7 @@ function ChildLedger() {
             }
 
             try {
-                const response = await axios.get('http://localhost:5000/api/users/retrieve-children');
+                const response = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-children');
                 const filteredChildren = response.data.filter(child => child.parentEmail.toLowerCase() === parentEmail.toLowerCase());
                 setChildrenList(filteredChildren);
             } catch (error) {
@@ -197,7 +197,7 @@ function MakePayment() {
             }
 
             try {
-                const response = await axios.get('http://localhost:5000/api/users/retrieve-children');
+                const response = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-children');
                 const filteredChildren = response.data.filter(child => child.parentEmail.toLowerCase() === parentEmail.toLowerCase());
                 setChildrenList(filteredChildren);
             } catch (error) {
@@ -213,7 +213,7 @@ function MakePayment() {
         const confirmPayment = window.confirm(`Do you want to pay fees for ${child.childName}?`);
         if (confirmPayment) {
             try {
-                await axios.post('http://localhost:5000/api/users/update-fee-paid', { 
+                await axios.post('https://childcare-backend.onrender.com/api/users/update-fee-paid', { 
                     childName: child.childName,
                     feePaid: child.feeDue // Use feeDue as the amount to be paid
                 });
@@ -277,7 +277,7 @@ function ModifyEnrollment() {
         setIsFetching(true);
         try {
             // Replace with your actual API endpoint
-            const response = await axios.get(`http://localhost:5000/api/users/retrieve-children/${childName}`);
+            const response = await axios.get(`https://childcare-backend.onrender.com/api/users/retrieve-children/${childName}`);
             setChildDetails(response.data);
         } catch (error) {
             console.error('Error fetching child:', error);
@@ -291,7 +291,7 @@ function ModifyEnrollment() {
         setIsUpdating(true);
         try {
             // Replace with your actual API endpoint
-            await axios.put(`http://localhost:5000/api/users/add-child/${childName}`, childDetails);
+            await axios.put(`https://childcare-backend.onrender.com/api/users/add-child/${childName}`, childDetails);
             alert('Child information updated successfully');
         } catch (error) {
             console.error('Error updating child:', error);
@@ -362,7 +362,7 @@ function Withdrawal() {
             }
 
             try {
-                const response = await axios.get('http://localhost:5000/api/users/retrieve-children');
+                const response = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-children');
                 const filteredChildren = response.data.filter(child => child.parentEmail.toLowerCase() === parentEmail.toLowerCase());
                 setChildrenList(filteredChildren);
             } catch (error) {
@@ -378,7 +378,7 @@ function Withdrawal() {
         const confirmWithdraw = window.confirm(`Requesting withdrawal for ${childName}. Continue?`);
         if (confirmWithdraw) {
             try {
-                await axios.post('http://localhost:5000/api/users/request-withdrawal', { childName });
+                await axios.post('https://childcare-backend.onrender.com/api/users/request-withdrawal', { childName });
                 alert('Withdrawal requested successfully.');
     
                 // Update the local state to reflect the withdrawal request

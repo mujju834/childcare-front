@@ -75,7 +75,7 @@ function StaffListWithAssign({ staffList, setStaffList }) {
     
         try {
             // Send a PUT request to your backend to update the assigned classroom
-            await axios.put('http://localhost:5000/api/users/assign-staff', {
+            await axios.put('https://childcare-backend.onrender.com/api/users/assign-staff', {
                 email: staffEmail,
                 assignedClassroom: classroom
             });
@@ -163,7 +163,7 @@ function EnrollmentManagement() {
 
     const fetchChildren = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users/retrieve-children');
+            const response = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-children');
             setChildrenList(response.data);
         } catch (error) {
             console.error('Error fetching children:', error);
@@ -174,7 +174,7 @@ function EnrollmentManagement() {
         const isConfirmed = window.confirm("Are you sure you want to delete this child?");
         if (isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/api/users/delete-child/${childId}`);
+                await axios.delete(`https://childcare-backend.onrender.com/api/users/delete-child/${childId}`);
                 alert('Child deleted successfully');
                 fetchChildren(); // Refresh the list
 
@@ -189,7 +189,7 @@ function EnrollmentManagement() {
 
     const handleWaitlistChild = async (childId) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/users/waitlist-child/${childId}`);
+            const response = await axios.put(`https://childcare-backend.onrender.com/api/users/waitlist-child/${childId}`);
             alert(response.data.message); // Display success message
             updateChildStatus(childId, { waitlisted: true }); // Update state
         } catch (error) {
@@ -200,7 +200,7 @@ function EnrollmentManagement() {
     
     const handleRemoveWaitlistChild = async (childId) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/users/remove-waitlist-child/${childId}`);
+            const response = await axios.put(`https://childcare-backend.onrender.com/api/users/remove-waitlist-child/${childId}`);
             alert(response.data.message); // Display success message
             updateChildStatus(childId, { waitlisted: false }); // Update state
         } catch (error) {
@@ -219,7 +219,7 @@ function EnrollmentManagement() {
 
     const fetchChildrenWithWithdrawalRequests = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users/retrieve-children');
+            const response = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-children');
             const childrenWithRequests = response.data.filter(child => child.withdrawalRequestedByParent);
             setChildrenList(childrenWithRequests);
         } catch (error) {
@@ -232,11 +232,11 @@ function EnrollmentManagement() {
     const handleApproveWithdrawal = async (childName, childId) => {
         try {
             // First, approve the withdrawal
-            const approveResponse = await axios.put(`http://localhost:5000/api/users/approve-withdrawal/${childName}`);
+            const approveResponse = await axios.put(`https://childcare-backend.onrender.com/api/users/approve-withdrawal/${childName}`);
             alert(approveResponse.data.message);
             
             // If approval is successful, proceed to delete the child
-            const deleteResponse = await axios.delete(`http://localhost:5000/api/users/delete-child/${childId}`);
+            const deleteResponse = await axios.delete(`https://childcare-backend.onrender.com/api/users/delete-child/${childId}`);
             // alert(deleteResponse.data.message);
     
             // Update local state to remove the child from the list
@@ -251,7 +251,7 @@ function EnrollmentManagement() {
     
     const handleDenyWithdrawal = async (childName) => {
         try {
-            await axios.put(`http://localhost:5000/api/users/deny-withdrawal/${childName}`);
+            await axios.put(`https://childcare-backend.onrender.com/api/users/deny-withdrawal/${childName}`);
             alert('Withdrawal denied successfully');
             updateChildStatus(childName, { withdrawalDeclined: true });
         } catch (error) {
@@ -347,7 +347,7 @@ function StaffManagement( ) {
     const onAssign = async (name, email, classroom) => {
         try {
             // Implement logic to assign a staff member to a classroom
-            await axios.put('http://localhost:5000/api/users/assign-staff', { name, email, assignedClassroom: classroom });
+            await axios.put('https://childcare-backend.onrender.com/api/users/assign-staff', { name, email, assignedClassroom: classroom });
             alert('Staff assigned to classroom successfully');
     
             // Update staffList state to reflect the new assignment and reset isReassigning state
@@ -370,7 +370,7 @@ function StaffManagement( ) {
 
     const fetchStaff = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users/retrieve-staff');
+            const response = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-staff');
             // Add isReassigning property
             const updatedStaffList = response.data.map(staff => ({ ...staff, isReassigning: false }));
             setStaffList(updatedStaffList);
@@ -397,7 +397,7 @@ function StaffManagement( ) {
         const isConfirmed = window.confirm(`Are you sure you want to remove this staff member?`);
         if (isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/api/users/delete-staff/${staffId}`);
+                await axios.delete(`https://childcare-backend.onrender.com/api/users/delete-staff/${staffId}`);
                 alert('Staff member removed successfully');
                 // Update the staff list state
                 const updatedStaffList = staffList.filter(staff => staff._id !== staffId);
@@ -472,7 +472,7 @@ function AddStaffForm({ onSubmit,fetchStaff  }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/users/add-staff', {
+            await axios.post('https://childcare-backend.onrender.com/api/users/add-staff', {
                 name: staffName,
                 qualifications,
                 email,
@@ -564,7 +564,7 @@ function AddChildForm() {
     const age = calculateAge(dob);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/users/add-child', {
+            const response = await axios.post('https://childcare-backend.onrender.com/api/users/add-child', {
                 childName, dob, grade, parentEmail, contactNumber, address, age
             });
             alert(response.data.message);

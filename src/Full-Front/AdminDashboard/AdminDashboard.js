@@ -22,7 +22,7 @@ function AdminDashboard() {
                 licenseNumber: newFacilityLicenseNumber
             };
             
-            const response = await axios.post('http://localhost:5000/api/users/add-facility', newFacility);
+            const response = await axios.post('https://childcare-backend.onrender.com/api/users/add-facility', newFacility);
             alert(response.data.message);
             
             setFacilities([...facilities, response.data.facility]);
@@ -35,7 +35,7 @@ function AdminDashboard() {
 
     const fetchFacilities = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users/facilities');
+            const response = await axios.get('https://childcare-backend.onrender.com/api/users/facilities');
             setFacilities(response.data);
         } catch (error) {
             console.error("Error fetching facilities:", error);
@@ -45,7 +45,7 @@ function AdminDashboard() {
 
     const handleDeleteFacility = async (facilityName, licenseNumber) => {
         try {
-            await axios.delete('http://localhost:5000/api/users/facility', {
+            await axios.delete('https://childcare-backend.onrender.com/api/users/facility', {
                 data: { name: facilityName, licenseNumber: licenseNumber }
             });
             setFacilities(facilities.filter(facility => facility.name !== facilityName || facility.licenseNumber !== licenseNumber));

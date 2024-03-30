@@ -39,7 +39,7 @@ function RegisterPage(props) {
         }
 
         // Send a POST request to the backend
-        axios.post('http://localhost:5000/api/users/register', user)
+        axios.post('https://childcare-backend.onrender.com/api/users/register', user)
         .then(res => {
             // Check for different roles and navigate accordingly
             if (res.data.isAdmin) {

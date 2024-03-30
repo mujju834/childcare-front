@@ -17,7 +17,7 @@ function TeacherDashboard() {
             const email = localStorage.getItem('email');
             if (email) {
                 try {
-                    const response = await axios.get(`http://localhost:5000/api/users/retrieve-staff?email=${email}`);
+                    const response = await axios.get(`https://childcare-backend.onrender.com/api/users/retrieve-staff?email=${email}`);
                     setSignInDetails(response.data); // Assuming this returns the last signInTime and signOutTime
                 } catch (error) {
                     console.error('Error fetching sign-in details:', error);
@@ -34,7 +34,7 @@ function TeacherDashboard() {
         if (loggedInEmail) {
             const fetchAttendance = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/api/users/retrieve-staff-attendance?email=${loggedInEmail}`);
+                    const response = await axios.get(`https://childcare-backend.onrender.com/api/users/retrieve-staff-attendance?email=${loggedInEmail}`);
                     if (response.data && response.data.attendance) {
                         setTeacherAttendance(response.data.attendance);
                     }
@@ -104,8 +104,8 @@ function TeacherDashboard() {
     
             const fetchStaffAndChildren = async () => {
                 try {
-                    const staffResponse = await axios.get('http://localhost:5000/api/users/retrieve-staff');
-                    const childrenResponse = await axios.get('http://localhost:5000/api/users/retrieve-children');
+                    const staffResponse = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-staff');
+                    const childrenResponse = await axios.get('https://childcare-backend.onrender.com/api/users/retrieve-children');
     
                     // Find the logged-in teacher's information
                     const loggedInStaff = staffResponse.data.find(staff => staff.email === loggedInEmail);
@@ -155,7 +155,7 @@ function TeacherDashboard() {
         useEffect(() => {
             const email = localStorage.getItem('email');
             if (email) {
-                axios.get(`http://localhost:5000/api/users/total-hours-worked/${encodeURIComponent(email)}`)
+                axios.get(`https://childcare-backend.onrender.com/api/users/total-hours-worked/${encodeURIComponent(email)}`)
                     .then(response => {
                         const hours = parseFloat(response.data.totalHoursWorked);
                         setTotalHoursWorked(isNaN(hours) ? 0 : hours);
@@ -205,7 +205,7 @@ function TeacherDashboard() {
    const handleSignIn = async () => {
     try {
         const email = localStorage.getItem('email');
-        const response = await axios.post('http://localhost:5000/api/users/sign-in', { email });
+        const response = await axios.post('https://childcare-backend.onrender.com/api/users/sign-in', { email });
 
         if (response.status === 200) {
             // Signed in successfully
@@ -233,7 +233,7 @@ const SignInOutView = () => {
         if (confirmation) {
             try {
                 const email = localStorage.getItem('email');
-                const signOutResponse = await axios.post('http://localhost:5000/api/users/sign-out', { email });
+                const signOutResponse = await axios.post('https://childcare-backend.onrender.com/api/users/sign-out', { email });
     
                 if (signOutResponse.status === 200) {
                     const totalHoursWorked = signOutResponse.data.hoursWorked;
@@ -242,7 +242,7 @@ const SignInOutView = () => {
                     setTotalHoursWorked(totalHoursWorked);
     
                     // Now save the total hours worked
-                    await axios.post('http://localhost:5000/api/users/total-hours-worked', { email, totalHoursWorked });
+                    await axios.post('https://childcare-backend.onrender.com/api/users/total-hours-worked', { email, totalHoursWorked });
     
                     alert("You have been signed out successfully. Total hours worked: " + totalHoursWorked + " hours");
                 }

@@ -11,7 +11,7 @@ function ForgotPassword() {
     const handleEmailSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/users/forgot', { email });
+            const response = await axios.post('https://childcare-backend.onrender.com/api/users/forgot', { email });
             if (response.data.exists) {
                 setStep(2);
             } else {
@@ -25,7 +25,7 @@ function ForgotPassword() {
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/users/reset-password', { email, password });
+            const response = await axios.post('https://childcare-backend.onrender.com/api/users/reset-password', { email, password });
             setMessage(response.data.message);
             setStep(3);
             // Redirect to the login page after a short delay
